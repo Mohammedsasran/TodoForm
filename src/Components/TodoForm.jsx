@@ -81,14 +81,14 @@ function TodoForm() {
               <div className="flex-shrink-0">
                 <input
                   type="checkbox"
-                  checked={tasks.completed}
+                  checked={task.completed}
                   onChange={() => toggleComplete(index)}
                   className="w-4 h-4 cursor-pointer "
                 />
 
               </div>
 
-              <span className={`${task.completed ? "text-green-600 font-bold" : ""}`}>
+              <span className={`${task.completed ? "text-green-600 font-bold mx-30"  : ""}`}>
                 {task.completed ? `Completed ${task.text}` : task.text}
               </span>
 
@@ -96,14 +96,19 @@ function TodoForm() {
 
 
 
-              
+              {!task.completed && (
               <div className="space-x-2">
+
+                
                 <button
                   onClick={() => editTask(index)}
+
                   className="bg-yellow-400 text-white px-2 py-1 rounded hover:bg-yellow-500"
                 >
                   Edit
                 </button>
+              
+                
                 <button
                   onClick={() => deleteTask(index)}
                   className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
@@ -112,6 +117,7 @@ function TodoForm() {
                 </button>
 
               </div>
+              )}
             </li>
           ))}
         </ul>
