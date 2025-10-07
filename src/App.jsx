@@ -1,17 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import TodoForm from './Components/TodoForm'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Components/Login";
+import Signup from "./Components/signup";
+import TodoForm from "./Components/TodoForm";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <TodoForm />
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/todos" element={<TodoForm />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
